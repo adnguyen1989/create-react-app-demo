@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { expect } from 'chai'
-import Form4 from '../../src/components/Form4'
+import Form4 from '~/src/components/Form4'
 
 const wrapper = shallow(<Form4 />);
 
