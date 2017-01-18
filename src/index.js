@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Form4 from './components/Form4';
+import FoodLookup from './components/FoodLookup';
 import './index.css';
 
 ReactDOM.render(
-  <Form4 />,
+  <FoodLookup />,
   document.getElementById('root')
 );
