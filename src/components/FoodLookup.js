@@ -12,12 +12,6 @@ export default class FoodLookup extends React.Component {
   }
 
   onFoodSubmit(food){
-    const item = this.state.selectedFoods.find(function(e) {
-      return e.id == food.id;
-    });
-
-    if (item) return
-
     this.setState({
       selectedFoods: this.state.selectedFoods.concat(food)
     })

@@ -12,7 +12,6 @@ export default class FoodSearch extends React.Component {
     this.onSearchChange = this.onSearchChange.bind(this)
     this.getFoods = this.getFoods.bind(this)
     this.clearFilterText = this.clearFilterText.bind(this)
-    this.addToList = this.addToList.bind(this)
   }
 
   componentWillMount() {
@@ -41,14 +40,6 @@ export default class FoodSearch extends React.Component {
       filterText: ""
     })
     this.getFoods("")
-  }
-
-  addToList(evt){
-    const id = evt.target.value
-    const item = this.state.searchResults.find(function(e) {
-      return e.id == id;
-    });
-    this.props.onSubmit(item)
   }
 
   render(){
@@ -83,14 +74,14 @@ export default class FoodSearch extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.searchResults.map(({carbohydrate_g, description, id, kcal, protein_g, sugar_g}, key)=>
-              <tr key={id}>
-                <td>{description}</td>
-                <td>{carbohydrate_g}</td>
-                <td>{kcal}</td>
-                <td>{protein_g}</td>
-                <td>{sugar_g}</td>
-                <td><button onClick={this.addToList} value={id}>Add</button></td>
+            {this.state.searchResults.map((food, key)=>
+              <tr key={food.id}>
+                <td>{food.description}</td>
+                <td>{food.carbohydrate_g}</td>
+                <td>{food.kcal}</td>
+                <td>{food.protein_g}</td>
+                <td>{food.sugar_g}</td>
+                <td><button className="add-button" onClick={() => this.props.onSubmit(food)}>Add</button></td>
 
               </tr>
             )}
