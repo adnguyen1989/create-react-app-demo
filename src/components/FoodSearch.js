@@ -76,7 +76,8 @@ export default class FoodSearch extends React.Component {
     return (
       <div>
         <form>
-          <input type="text"
+          <input id="searchField" type="text"
+          name="searchField"
           placeholder="Enter a search term"
           onChange={this.onSearchChange}
           value={this.state.filterText}>
@@ -85,13 +86,13 @@ export default class FoodSearch extends React.Component {
 
         <br />
 
-        <button onClick={this.clearFilterText} hidden={this.state.filterText===""}>Clear Filter Text</button>
+        <button className="remove icon" onClick={this.clearFilterText} hidden={this.state.filterText===""}>Clear Filter Text</button>
 
         <br />
         <br />
         <br />
 
-        <table className='ui selectable structured large table'>
+        <table className='ui selectable structured large table' id='selectedResults'>
           <thead>
             <tr>
               <th>Description</th>
