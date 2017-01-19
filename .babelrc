@@ -1,6 +1,5 @@
 {
   "plugins": [
     ["babel-root-import"]
-  ],
- "presets": ["react", "es2015"]
+  ]
 }

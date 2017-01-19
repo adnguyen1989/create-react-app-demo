@@ -1,9 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { expect } from 'chai'
 import FoodSearch from '~/src/components/FoodSearch'
-import sinon from 'sinon';
-
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 describe('(Component) FoodSearch', () => {
   // ... initial state specs
@@ -15,11 +14,11 @@ describe('(Component) FoodSearch', () => {
   })
 
   it ("does not render the remove button", ()=>{
-    expect(wrapper.find('.remove.icon').first().props().hidden).to.equal(true)
+    expect(wrapper.find('.remove.icon').first().props().hidden).toEqual(true)
   })
 
   it ("renders an empty list", ()=>{
-    expect(wrapper.find('#selectedResults tbody tr').length).to.equal(0)
+    expect(wrapper.find('#selectedResults tbody tr').length).toEqual(0)
   })
 
   describe('user populates search field', () => {
@@ -34,11 +33,11 @@ describe('(Component) FoodSearch', () => {
     });
 
     it ('updates the state filterText', ()=>{
-      expect(wrapper.state().filterText).to.equal(value)
+      expect(wrapper.state().filterText).toEqual(value)
     })
 
     it ("renders the remove button", ()=>{
-      expect(wrapper.find('.remove.icon').first().props().hidden).to.equal(false)
+      expect(wrapper.find('.remove.icon').first().props().hidden).toEqual(false)
     })
 
     describe('and API returns results', () => {

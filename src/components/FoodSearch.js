@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
+import Client from '../helpers/Client'
 
 export default class FoodSearch extends React.Component {
 
@@ -27,30 +28,8 @@ export default class FoodSearch extends React.Component {
     this.getFoods(filterText)
   }
 
-  checkStatus(response) {
-    if (response.status >= 200 && response.status < 300) {
-      return response;
-    } else {
-      const error = new Error(`HTTP Error ${response.statusText}`);
-      error.status = response.statusText;
-      error.response = response;
-      console.log(error);
-      throw error;
-    }
-  }
-
-  parseJSON(response) {
-    return response.json();
-  }
-
   getFoods(filterText){
-    return fetch('http://accounts.dev/api/foods/?q=' + filterText,{
-      headers: {
-        Accept: 'application/json',
-      }
-    }).then(this.checkStatus)
-    .then(this.parseJSON)
-    .then((response)=>{
+    Client.search(filterText, (response)=>{
       this.setState({
         searchResults: response || []
       })
