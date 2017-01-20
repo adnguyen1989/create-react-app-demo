@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FoodLookup from './components/FoodLookup';
+import Route from './components/Route';
 import './index.css';
 
 ReactDOM.render(
-  <FoodLookup />,
+  <Route />,
   document.getElementById('root')
 );
